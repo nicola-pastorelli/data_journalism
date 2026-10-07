@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<title>Italia sismica</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="../images/favicon.png">
+<link rel="stylesheet" href="file.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Belanosima&family=Pacifico&display=swap');
+  #map { height: 90vh; }
+  .controls { margin: 10px; }
+</style>
+<script src="script.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@5.8.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body class="w3-light-grey w3-content">
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-bar-block w3-white w3-animate-left w3-text-grey w3-collapse w3-top" id="mySidebar"><br>
+  <h3 class="w3-padding-64" id="title-sidebar"><b>Italia sismica:<br>una storia di terremoti</b></h3>
+  <a href="#introduzione" onclick="w3_close()" class="w3-bar-item w3-button-sidebar">Italia sismica: una storia di terremoti</a>
+  <a href="#impatto_demografico_economico" onclick="w3_close()" class="w3-bar-item w3-button-sidebar">L'impatto demografico ed economico dei terremoti</a>
+  <a href="#modello_predittivo" onclick="w3_close()" class="w3-bar-item w3-button-sidebar">Un modello predittivo</a>
+  <a href="#conclusioni" onclick="w3_close()" class="w3-bar-item w3-button-sidebar">Conclusioni</a>
+</nav>
+
+<!-- Top menu on small screens -->
+<header class="w3-container w3-top w3-hide-large w3-white w3-xlarge w3-padding-16">
+  <span class="w3-left w3-padding">Italia sismica:<br>una storia di terremoti</span>
+  <a href="javascript:void(0)" class="w3-right w3-button w3-white" onclick="w3_open()">☰</a>
+</header>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main">
+
+  <!-- Push down content on small screens -->
+  <div class="w3-hide-large"></div>
+
+  <!-- Modal for full size images on click-->
+  <div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
+    <div class="w3-button w3-black w3-xlarge w3-display-topright">×</div>
+    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+      <p id="caption"></p>
+      <div style="float: right">
+
+      </div>
+      <div id="img01-container"></div>
+
+    </div>
+  </div>
+
+ <!-- Italia sismica: una storia di terremoti -->
+  <div class="w3-container w3-center w3-padding-32" id="introduzione">
+    <div class="w3-content w3-justify">
+      <div class="w3-container w3-center w3-padding-32">
+
+      <h1 class="main-titles"><b>Italia sismica:<br>una storia di terremoti</b></h1>
+      
+        <div id="top-of-toc1" class="css-1ez01tu-BodyContainer e1s8k40s0">
+          <div class="css-uiylu1-LeftRailComponents e1s8k40s2">
+            <div class="TocContainer">
+              <div id="toc-block1" class="TableOfContentsContainer">
+               <a href="#sez1" id="toc-element-01" class="ElementWrapper-choicer">
+                  <div class="pallino"></div>
+                  <div class="scritta">
+                    <div>Trend storico dei terremoti</div>
+                  </div>
+                </a>
+                <a href="#sez2" id="toc-element-1-1" class="ElementWrapper-choicer">
+                  <div class="pallino"></div>
+                  <div class="scritta">
+                    <div>Distribuzione geografica dei terremoti</div>
+                  </div>
+                </a>
+                <a href="#sez3" id="toc-element-3-1" class="ElementWrapper-choicer">
+                  <div class="pallino"></div>
+                  <div class="scritta">
+                    <div>Una mappa interattiva</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+     
+        <div class="w3-content w3-justify">     
+
+          <p>
+            L'Italia è uno dei paesi europei più esposti al rischio sismico. Dal 1985 al 2024 sono stati registrati circa 442.000 terremoti, con un significativo aumento negli ultimi vent'anni dovuto al miglioramento della rete di monitoraggio INGV.
+          </p>
+
+          <p>
+            Questo articolo analizza i trend storici e geografici della sismicità italiana, esamina l'impatto demografico ed economico degli otto terremoti più devastanti dal 1968 al 2016 (oltre 4.900 vittime e 135 miliardi di euro di spesa pubblica) e presenta un modello predittivo basato sull'intelligenza artificiale per identificare le aree prioritarie di intervento e orientare le politiche di prevenzione sismica.
+          </p>
+         
+          <h2 id="sez1">Trend storico dei terremoti</h2>
+
+          <p>
+            Secondo i dati dell’INGV (Istituto Nazionale di Geofisica e Vulcanologia), nel periodo compreso <b>tra il 1° gennaio 1985 e il 31 dicembre 2024, in Italia hanno avuto luogo circa 442.000 terremoti. Di questi, la maggior parte è stata registrata negli ultimi 20 anni</b>, cioè quelli compresi tra il 2005 e il 2024; al contrario, nei primi 20 anni compresi tra il 1985 e il 2004 sono stati registrati molti meno terremoti. Precisamente, nel decennio 1985-1994 sono stati registrati circa 20.000 terremoti, nel decennio 1995-2004 circa 28.000, nel decennio 2005-2014 circa 148.000 e nel decennio 2015-2024 circa 245.000.
+          </p>
+
+          <!--grafico andamento terremoti in Italia arco 1985-2024 per decennio-->
+          <div class="chartContainer">
+            <img src="../images/terremoti_per_decennio.png" alt="Terremoti per Decennio" style="width:100%; height:auto; border-radius:8px;">
+          </div>
+          <figcaption style="text-align: center; font-size: 16px; font-style: italic;"><b>Figura 1: Numero di terremoti registrati in Italia nel periodo 1985-2024 suddivisi per decennio</b></figcaption>
+
+          <p>
+            Analizzando i dati storici a un livello maggiore di dettaglio, cioè per anno anziché per decennio, <b>risulta evidente un picco di terremoti registrato nel 2016 e proseguito poi nel 2017</b>. Infatti, nel 2016 sono stati registrati più di 60.000 terremoti, tra cui il terremoto con magnitudo 6.5 - la più alta registrata negli ultimi 40 anni - avente come epicentro Norcia (PG), il terremoto con magnitudo 6 avente come epicentro Accumoli (RI) e il terremoto con magnitudo 5.9 avente come epicentro Visso (MC).
+          </p>
+
+          <!--grafico andamento terremoti in Italia arco 1985-2024 per anno-->
+          <div class="chartContainer"> 
+            <img src="../images/terremoti_per_anno.png" alt="Terremoti per Anno" style="width:100%; height:auto; border-radius:8px;">
+          </div>
+          <figcaption style="text-align: center; font-size: 16px; font-style: italic;"><b>Figura 2: Numero di terremoti registrati in Italia nel periodo 1985-2024 suddivisi per anno</b></figcaption>
+
+          <p>
+            Secondo l’intervistato Carlo Meletti, primo tecnologo della sezione di Pisa dell’INGV, è possibile spiegare il picco di terremoti registrato nel 2016 come una replica dei terremoti avvenuti su scala mondiale negli anni precedenti. Infatti, spiega Meletti, negli anni precedenti (in particolare nel 2011) è stato registrato un picco di terremoti a livello globale, il quale si è replicato in Italia nel 2016 e nel 2017.
+          </p>
+
+          <p>
+            Esaminando ora i dati storici dal punto di vista della magnitudo, appare evidente che i terremoti registrati tra il 1985 e il 2004 hanno una magnitudo media abbastanza elevata (pari a circa 2.5). Al contrario, <b>i terremoti registrati tra il 2005 e il 2024 hanno una magnitudo media decisamente più bassa</b> (pari a circa 1.4).
+          </p>
+
+          <!--grafico magnitudo media per decennio-->
+          <div class="chartContainer"> 
+            <img src="../images/magnitudo_media_per_decennio.png" alt="Magnitudo Media per Decennio" style="width:100%; height:auto; border-radius:8px;">
+          </div>
+          <figcaption style="text-align: center; font-size: 16px; font-style: italic;"><b>Figura 3: Magnitudo media dei terremoti registrati in Italia nel periodo 1985-2024 suddivisi per decennio</b></figcaption>
+
+          <p>
+            Secondo Meletti, ciò è dovuto al fatto che nel periodo 1985-2004 le stazioni sismiche dell’INGV installate sul territorio italiano erano ancora relativamente poche. Di conseguenza, la soglia di detezione – cioè di rilevazione – della magnitudo era piuttosto elevata (all’inizio era intorno a 3.5). Questo spiega non solo l’elevata magnitudo media di questo periodo, ma anche il basso numero di terremoti registrati nei primi 20 anni.
+          </p>
+
+          <p>
+            Al contrario, continua Meletti, nel periodo 2005-2024 le stazioni sismiche dell’INGV presenti sul suolo italiano sono sensibilmente aumentate, determinando una soglia di detezione della magnitudo decisamente più bassa (ora è intorno a 1). Ciò spiega non solo la bassa magnitudo media di questo periodo, ma anche l’elevato numero di terremoti registrati negli ultimi 20 anni.
+          </p>
+
+      <h2 id="sez2">Distribuzione geografica dei terremoti</h2>
+      
+        <p>
+          Analizzando i dati a livello geografico, emerge chiaramente che <b>l’area più colpita è il Centro Italia, che ha registrato il 61.5% dei terremoti, pari a circa 260.000 terremoti</b>. Meno colpito ma comunque interessato dal fenomeno sismico è il Sud, che ha registrato il 28.3% dei terremoti, pari a circa 120.000 terremoti. L’area meno interessata dal fenomeno sismico è il Nord, che ha registrato solo il 10.3% dei terremoti, pari a circa 43.000 terremoti.
+        </p>
+
+        <!-- Grafico distribuzione terremoti per area -->
+        <div class="chartContainer" style="max-width: 500px; margin: 0 auto;"> 
+          <img src="../images/terremoti_per_area.png" alt="Terremoti per area" style="width:100%; height:auto; border-radius:8px;">
+        </div>
+        <figcaption style="text-align: center; font-size: 16px; font-style: italic;"><b>Figura 4: Distribuzione dei terremoti registrati in Italia nel periodo 1985-2024 suddivisi per area</b></figcaption>
+
+        <p>
+          Queste osservazioni trovano conferma esaminando i dati a un livello maggiore di dettaglio, cioè per regione anziché per area. Infatti, <b>le due regioni più colpite sono proprio del Centro Italia, ovvero l’Umbria e le Marche, che hanno registrato rispettivamente circa 12 terremoti per km² e circa 10 terremoti per km²</b>. Meno colpite ma comunque interessate dal fenomeno sismico sono l’Abruzzo e il Lazio, che hanno registrato rispettivamente circa 4 terremoti per km² e poco più di 2 terremoti per km². A seguire le altre regioni, fino ad arrivare a una regione praticamente asismica, ovvero la Sardegna, che in 40 anni ha registrato solo 80 terremoti, pari a 0.003 terremoti per km².
+        </p>
+
+        <!--grafico densità terremoti per regione-->
+          <div class="chartContainer"> 
+            <img src="../images/densità_terremoti_per_regione.png" alt="Densità terremoti per regione" style="width:100%; height:auto; border-radius:8px;">
+          </div>
+          <figcaption style="text-align: center; font-size: 16px; font-style: italic;"><b>Figura 5: Numero di terremoti per km² registrati in Italia nel periodo 1985-2024 suddivisi per regione</b></figcaption>
+
+        <p>
+          La vera sorpresa arriva però esaminando i dati dal punto di vista della magnitudo. Infatti, <b>il Nord è l’area con la magnitudo media più elevata</b> (pari a circa 1.75). A seguire il Sud, con una magnitudo media pari a circa 1.66, e il Centro, con una magnitudo media pari a circa 1.34.
+        </p>
+
+        <!--grafico magnitudo media per area-->
+          <div class="chartContainer"> 
+            <img src="../images/magnitudo_media_per_area.png" alt="Magnitudo media per area" style="width:100%; height:auto; border-radius:8px;">
+          </div>
+          <figcaption style="text-align: center; font-size: 16px; font-style: italic;"><b>Figura 6: Magnitudo media dei terremoti registrati in Italia nel periodo 1985-2024 suddivisi per area</b></figcaption>
+
+        <p>
+          Secondo Meletti, ciò è dovuto al fatto che nel Centro Italia è presente una rete sismica molto sviluppata. In particolare, vicino alla faglia di Gubbio è installato un osservatorio molto denso di stazioni sismiche. Di conseguenza, in quest’area la soglia di detezione della magnitudo è molto bassa. Questo spiega non solo la bassa magnitudo media del Centro Italia, ma anche l’elevato numero di terremoti registrati in quest’area.
+        </p>
+
+        <p>
+          Al contrario, prosegue Meletti, al Sud e soprattutto al Nord sono installate meno stazioni sismiche, il che determina una soglia di detezione della magnitudo più elevata. Ciò spiega non solo la più elevata magnitudo media del Sud e soprattutto del Nord, ma anche il più basso numero di terremoti registrati in queste aree.
+        </p>
+
+        <!-- Grafico rete sismica nazionale -->
+        <div class="chartContainer" style="max-width: 500px; margin: 0 auto;"> 
+          <img src="../images/rete_sismica_nazionale.png" alt="Rete Sismica Nazionale" style="width:100%; height:auto; border-radius:8px;">
+        </div>
+        <figcaption style="text-align: center; font-size: 16px; font-style: italic;"><b>Figura 7: Stazioni della rete sismica nazionale (fonte INGV)</b></figcaption>
+
+      <!--######################################################################################-->
+      <!--WORTSTATION IMPORTANTISSIMA PER LA MAPPA INTERATTIVA NON TOCCARE-->
+      <h2 id="sez3">Una mappa interattiva</h2>
+
+        <p>
+          La seguente mappa interattiva sintetizza l’aspetto storico e l’aspetto geografico appena analizzati. Infatti, nel menù a tendina in alto a sinistra il lettore può selezionare un anno compreso tra il 1985 e il 2024, in modo da visualizzare sulla mappa tutti i terremoti avvenuti in quell’anno. Inoltre, il lettore può visualizzare i terremoti di tutte le magnitudo oppure solo quelli con una magnitudo bassa (tra 0 e 1.9), medio-bassa (tra 2 e 2.9), media (tra 3 e 3.9), medio-alta (tra 4 e 5.4) o alta (tra 5.5 e 6.5).
+        </p>
+
+        <div class="controls">
+          <label>Anno:</label>
+          <select id="yearFilter"></select>
+
+          <label>Magnitudo:</label>
+          <select id="powerFilter">
+            <option value="all">Tutte</option>
+            <option value="low">Bassa</option>
+            <option value="mid-low">Medio-bassa</option>
+            <option value="mid">Media</option>
+            <option value="mid-high">Medio-alta</option>
+            <option value="high">Alta</option>
+          </select>
+        </div>
+
+        <div id="map"></div>
+        <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+        <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+        <script>
+          const map = L.map('map').setView([42.5, 12.5], 6);
+
+          L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap'
+          }).addTo(map);
+
+          let markerCluster;
+
+          function getColorByMagnitude(mag) {
+            if (mag >= 5.5) return '#d73027';   // rosso intenso
+            if (mag >= 4) return '#fc8d59';     // arancio forte
+            if (mag >= 3) return '#fee08b';     // giallo chiaro
+            if (mag >= 2) return '#d9ef8b';     // giallo-verde
+            return '#1a9850';                   // verde intenso
+          }
+
+          function renderMarkers(data, selectedYear, selectedPower) {
+            if (markerCluster) {
+              map.removeLayer(markerCluster);
+            }
+
+            markerCluster = L.markerClusterGroup();
+
+            data.forEach(d => {
+              const yearOK = d.year == selectedYear;
+              const powerOK = selectedPower === "all" || d.power === selectedPower;
+
+              if (yearOK && powerOK) {
+                const marker = L.circleMarker([d.lat, d.lon], {
+                  radius: d.magnitude * 2,
+                  fillColor: getColorByMagnitude(d.magnitude),
+                  color: '#333',
+                  weight: 1,
+                  fillOpacity: 0.7
+                });
+
+                marker.bindPopup(`
+                  <b>${d.place}</b><br>
+                  Magnitudo: ${d.magnitude}<br>
+                  Power: ${d.power}<br>
+                  Provincia: ${d.province_name}<br>
+                  Regione: ${d.region}<br>
+                  Ora: ${d.time}
+                `);
+
+                markerCluster.addLayer(marker);
+              }
+            });
+
+            map.addLayer(markerCluster);
+          }
+
+          fetch('../data/terremoti.json')
+            .then(res => res.json())
+            .then(data => {
+              const yearSelect = document.getElementById('yearFilter');
+              const powerSelect = document.getElementById('powerFilter');
+
+              const years = [...new Set(data.map(d => d.year))].sort((a, b) => a - b);
+              const latestYear = years[years.length - 1];
+
+              years.forEach(y => {
+                const opt = document.createElement('option');
+                opt.value = y;
+                opt.textContent = y;
+                if (y === latestYear) opt.selected = true;
+                yearSelect.appendChild(opt);
+              });
+
+              function update() {
+                const selectedYear = yearSelect.value;
+                const selectedPower = powerSelect.value;
+                renderMarkers(data, selectedYear, selectedPower);
+              }
+
+              yearSelect.addEventListener('change', update);
+              powerSelect.addEventListener('change', update);
+
+              renderMarkers(data, latestYear, powerSelect.value);
+            });
+        </script>
+      <!--######################################################################################-->
+      </div>
+     </div>
+    </div>
+  </div>
+  
+
+
+  <!--L'IMPATTO DEMOGRAFICO ED ECONOMICO DEI TERREMOTI-->
+  <div class="w3-container w3-light-grey w3-center w3-padding-32" id="impatto_demografico_economico">
+
+    <div class="w3-content w3-justify w3-container">
+      <h1 class="main-titles"><b>L'impatto demografico ed economico dei terremoti</b></h1>
+
+      <div id="top-of-toc2" class="css-1ez01tu-BodyContainer e1s8k40s0">
+        <div class="css-uiylu1-LeftRailComponents e1s8k40s2">
+          <div class="TocContainer">
+            <div id="toc-block2" class="TableOfContentsContainer">
+            </div>
+          </div>
+        </div>
+     
+      </div>
+
+      <p>
+        Finora abbiamo analizzato i terremoti avvenuti negli ultimi 40 anni da un punto di vista storico e geografico. Non abbiamo però ancora esaminato il loro impatto negativo in termini demografici ed economici. Per fare ciò, è opportuno estendere l’arco temporale considerato finora risalendo dal 1985 al 1968. Infatti, lo studio più recente in materia analizza i costi demografici ed economici degli <b>8 terremoti di maggiore magnitudo accaduti tra il 1968 e il 2016: il terremoto nella Valle del Belice del 1968, il terremoto nel Friuli Venezia Giulia del 1976, il terremoto in Irpinia del 1980, il terremoto nelle Marche e in Umbria del 1997, il terremoto in Molise e in Puglia del 2002, il terremoto in Abruzzo del 2009, il terremoto in Emilia Romagna del 2012, il terremoto nel Centro Italia del 2016.</b>
+      </p>
+
+      <iframe src="../map/top_earthquakes.html" width="100%" height="600" style="border:none;"></iframe>
+
+      <p>
+        Questo studio – realizzato da Fondazione Inarcassa insieme al Consiglio Nazionale degli Ingegneri e al Consiglio Nazionale degli Architetti, Pianificatori, Paesaggisti e Conservatori – è stato presentato nella settima edizione della Giornata Nazionale della Prevenzione Sismica svoltasi a Roma il 17 dicembre 2024.
+      </p>
+
+      <p>
+        Come si legge nel documento di sintesi dello studio, <b>gli 8 terremoti presi in considerazione hanno innanzitutto comportato dei costi gravissimi in termini di vite umane, feriti e sfollati</b>. Precisamente, il terremoto nella Valle del Belice provocò 370 vittime e 70.000 sfollati; il terremoto nel Friuli Venezia Giulia provocò 989 vittime e 100.000 sfollati; il terremoto in Irpinia provocò 2.914 vittime e 280.000 sfollati; il terremoto nelle Marche e in Umbria provocò 12 vittime e 32.000 sfollati; il terremoto in Molise e in Puglia provocò 20 vittime; il terremoto in Abruzzo provocò 309 vittime e 60.000 sfollati; il terremoto in Emilia Romagna provocò 27 vittime e 19.000 sfollati; il terremoto nel Centro Italia ha un bilancio di 299 morti e 41.000 sfollati.
+      </p>
+
+      <!--grafico costi demografici terremoti-->
+          <div class="chartContainer"> 
+            <img src="../images/costi_demografici_terremoti.png" alt="Costi Demografici Terremoti" style="width:100%; height:auto; border-radius:8px;">
+          </div>
+          <figcaption style="text-align: center; font-size: 16px; font-style: italic;"><b>Figura 8: Costi demografici (vittime, feriti, sfollati) dei principali terremoti italiani dal 1968 al 2016</b></figcaption>
+
+      <p>
+        Per quanto riguarda invece i costi economici, <b>l’ammontare delle spese sostenute dallo Stato dal 1968 ad oggi per gli interventi di ricostruzione a seguito degli eventi sismici più gravi risulta superiore ai 135 miliardi di euro</b>. Di questi, più di 9 miliardi sono stati spesi per gli interventi di ricostruzione nella Valle del Belice; quasi 19 miliardi sono stati spesi nel Friuli Venezia Giulia; ben 52 miliardi sono stati spesi in Irpinia; più di 13 miliardi sono stati spesi nelle Marche e in Umbria; oltre un miliardo è stato speso in Molise e in Puglia; più di 17 miliardi sono stati spesi in Abruzzo; più di 8 miliardi sono stati spesi in Emilia Romagna; quasi 15 miliardi sono stati spesi nel Centro Italia.
+      </p>
+
+      <!--grafico stanziamenti eventi ricostruzione-->
+          <div class="chartContainer"> 
+            <img src="../images/stanziamenti_eventi_ricostruzione.png" alt="Stanziamenti Eventi Ricostruzione" style="width:100%; height:auto; border-radius:8px;">
+          </div>
+          <figcaption style="text-align: center; font-size: 16px; font-style: italic;"><b>Figura 9: Spesa pubblica per interventi di ricostruzione post-sisma dal 1968 al 2016 (in miliardi di euro)</b></figcaption>
+
+
+      <p>
+        Quindi, dal terremoto nella Valle del Belice lo Stato spende mediamente oltre 2 miliardi l’anno per interventi ricostruttivi. Si tratta di una spesa ingente, ma non sufficiente a garantire il ripristino del tessuto economico e sociale dei territori colpiti dal sisma. I dati pubblici, infatti, evidenziano come le cicatrici di un terremoto permangano a distanza di molti anni: <b>la diminuzione del PIL locale e la riduzione della popolazione residente sono un fattore comune a quasi tutti i territori colpiti dal sisma</b>.
+      </p>
+
+      <p>
+        Consideriamo ad esempio il terremoto in Irpinia. Una analisi elaborata dalla Banca d’Italia ha stimato che venti anni dopo il terremoto, il Pil pro-capite nel cratere irpino risultava del 20% più basso rispetto ad una ipotesi controfattuale, cioè ad una ipotesi di quantificazione della crescita se l’evento sismico non si fosse verificato. 
+      </p>
+
+      <p>
+        Oltre al terremoto in Irpinia, anche il terremoto nella Valle del Belice e il terremoto nel Friuli Venezia Giulia sono utili per valutare gli effetti di mancata crescita economica che generalmente caratterizzano nel lungo periodo le aree colpite dal sisma. Anche a distanza di mezzo secolo, infatti, i parametri dei costi indiretti dei tre terremoti presi in esame sono in negativo, con una sola eccezione relativa al PIL del Friuli dove l’effetto “building back better”, ovvero l’effetto di modernizzazione dell’economia locale a seguito di un evento distruttivo, ha consentito il passaggio da un’economia agricola a un’economia industriale.
+      </p>
+
+      <!--grafico costi indiretti terremoti-->
+          <div class="chartContainer"> 
+            <img src="../images/costi_indiretti_terremoti.png" alt="Costi Indiretti Terremoti" style="width:100%; height:auto; border-radius:8px;">
+          </div>
+          <figcaption style="text-align: center; font-size: 16px; font-style: italic;"><b>Figura 10: Costi indiretti dei terremoti in Italia (economici, sociali, demografici e culturali)</b></figcaption>
+
+      <p>
+        A fronte di tutti i costi diretti e indiretti che impattano sulla demografia e sull’economia, l’idea chiave dello studio preso in esame è che <b>occorre andare oltre la mera politica della ricostruzione adottando una lungimirante politica di prevenzione</b>. In particolare, occorre intervenire sul patrimonio edilizio residenziale per realizzare opere di adeguamento sismico.
+      </p>
+
+      <p>
+        Infatti, più della metà dei 12 milioni di edifici utilizzati per uso residenziale sono stati costruiti prima del 1971. Meno del 3% è stato costruito nel momento in cui le Norme Tecniche per le Costruzioni hanno iniziato a focalizzarsi sulla prevenzione sismica, ovvero nel 2008. Questo fatto, tuttavia, viene almeno parzialmente mitigato dalle analisi sullo stato di conservazione degli edifici. Il 32% degli edifici risulta in condizioni ottime, il 51% risulta in buone condizioni mentre il restante 17% si trova in un’area di evidente degrado.
+      </p>
+
+      <p>
+        Vi sono, insomma, delle aree prioritarie di intervento su cui concentrarsi inizialmente ed altre per le quali sarà possibile intervenire nel medio o lungo periodo.
+      </p>
+
+  </div>
+
+</div>
+
+
+
+
+
+  <!--UN MODELLO PREDITTIVO -->
+  <div class="w3-container w3-center w3-padding-32" id="modello_predittivo">
+
+    <div class="w3-content w3-justify w3-container">
+      <h1 class="main-titles"><b>Un modello predittivo</b></h1>
+
+      <div id="top-of-toc2" class="css-1ez01tu-BodyContainer e1s8k40s0">
+        <div class="css-uiylu1-LeftRailComponents e1s8k40s2">
+          <div class="TocContainer">
+            <div id="toc-block2" class="TableOfContentsContainer">
+            </div>
+          </div>
+        </div>
+     
+      </div>
+
+      <p>
+        Nell'individuazione delle aree prioritarie di intervento su cui concentrarsi, occorre naturalmente tenere conto non solo dello stato degli edifici, ma anche delle aree caratterizzate da una sismicità con magnitudo elevata. A tal proposito, <b>è stato sviluppato un modello di intelligenza artificiale che predice la magnitudo di un possibile evento sismico sul territorio italiano</b>. Per fare questa previsione il modello non utilizza strumenti sismologici, ma si basa esclusivamente sui dati storici dei terremoti avvenuti in Italia negli ultimi 40 anni, prendendo in considerazione una serie di fattori geografici e storici:
+      </p>
+
+      <section>
+        <h3>Fattori Geografici</h3>
+        <ul>
+          <li>La provincia in cui potrebbe verificarsi il terremoto</li>
+          <li>Le coordinate del possibile terremoto (latitudine e longitudine)</li>
+          <li>La profondità del terremoto</li>
+          <li>La distanza dalla località di riferimento</li>
+          <li>La distanza dall’epicentro dell’ultimo terremoto nella stessa provincia</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Fattori Storici</h3>
+        <ul>
+          <li>La stagione in cui potrebbe verificarsi il terremoto</li>
+          <li>La fascia oraria del possibile terremoto (giorno o notte)</li>
+          <li>La magnitudo media dei terremoti negli ultimi 30 giorni nella stessa provincia</li>
+          <li>Il trend della magnitudo negli ultimi 30 giorni nella provincia</li>
+          <li>L’attività sismica recente nella provincia</li>
+        </ul>
+      </section>
+
+      <p>
+        Per comprendere come funziona il modello, immaginiamo di voler predire la magnitudo di un possibile terremoto in provincia di Firenze, con le seguenti caratteristiche:
+      </p>
+
+      <section>
+        <ul>
+          <li>Provincia: Firenze</li>
+          <li>Coordinate: 43.77°N, 11.25°E (centro di Firenze)</li>
+          <li>Profondità: 10 km</li>
+          <li>Distanza dalla località di riferimento: 5 km</li>
+          <li>Distanza dall’epicentro dell'ultimo terremoto: 10 km</li>
+          <li>Stagione: estate</li>
+          <li>Fascia oraria: giorno</li>
+          <li>Magnitudo media negli ultimi 30 giorni nella provincia: 2.5</li>
+          <li>Trend della magnitudo negli ultimi 30 giorni nella provincia: leggero aumento (+0.1)</li>
+          <li>Attività sismica recente nella provincia: 80% rispetto alla media storica</li>
+        </ul>
+      </section>
+
+      <p>
+        Inserendo questi dati nel modello, la magnitudo prevista è pari a circa 1.9. Considerando che il modello compie un errore medio pari a ± 0.3, la magnitudo reale di un terremoto con quelle caratteristiche sarebbe probabilmente pari a circa 2.2 o 1.6.
+      </p>
+
+      <p>
+        Il modello ha quindi una buona capacità predittiva, ma – ricordiamolo – non ha la pretesa di indicare quando e dove avverrà un terremoto, ma piuttosto di stimare quale potrebbe essere la magnitudo più probabile di un terremoto in una determinata area, date le condizioni note. Si tratta dunque di uno strumento utile per individuare le aree prioritarie di intervento su cui concentrarsi, cioè quelle dove la magnitudo prevista è più elevata. <b>Un supporto in più, insomma, per orientare le politiche di prevenzione e messa in sicurezza del patrimonio edilizio italiano.</b>
+      </p>
+
+    </div>
+
+  </div>
+
+  <!-- CONCLUSIONI -->
+  <div class="w3-container w3-light-grey w3-center w3-padding-32" id="conclusioni">
+    <h1 class="main-titles"><b>Conclusioni</b></h1>
+    <div id="top-of-toc3" class="css-1ez01tu-BodyContainer e1s8k40s0">
+      <div class="css-uiylu1-LeftRailComponents e1s8k40s2">
+        <div class="TocContainer">
+          <div id="toc-block3" class="TableOfContentsContainer">
+           
+          </div>
+        </div>
+      </div>
+    </div>
+   
+    <div class="w3-content w3-justify w3-container">
+      <p>
+        L'analisi dei dati sismici conferma il Centro Italia come l'area più attiva, mentre l'aumento dei terremoti registrati negli ultimi decenni riflette principalmente il miglioramento tecnologico della rete di monitoraggio INGV.
+      </p>
+
+      <p>
+        I 135 miliardi di euro spesi per la ricostruzione post-sisma e gli effetti persistenti su economia e popolazione dimostrano l'urgenza di passare dalla gestione dell'emergenza alla prevenzione. Con oltre la metà degli edifici residenziali costruiti prima del 1971, la messa in sicurezza del patrimonio edilizio è prioritaria.
+      </p>
+
+      <p>
+        Il modello predittivo sviluppato, pur non prevedendo quando e dove avverranno i terremoti, rappresenta uno strumento utile per identificare le aree di intervento prioritario.
+      </p>
+
+      <p>
+        L'Italia del futuro deve necessariamente fondarsi su una cultura della prevenzione sismica per trasformare una vulnerabilità storica in sicurezza per cittadini e territorio.
+      </p>
+
+    </div>
+  </div>
+
+  
+ 
+
+
+
+  <!-- Footer -->
+  <footer class="w3-container w3-padding-32 w3-grey">
+    <div class="w3-row-padding">
+      <div class="w3-third">
+        <h3>Progetto di Data Journalism</h3>
+        <ul id="project">
+          <li>Maggio 2025</li>
+        </ul>
+      </div>
+
+
+      <div class="w3-third">
+        <h3>Realizzato da:</h3>
+        <ul id="authors">
+          <li>Arcangelo Franco - matricola 584174</li>
+          <li>Nicola Pastorelli - matricola 656431</li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <div class="w3-black w3-center w3-padding-24"> </div>
+
+<!-- End page content -->
+</div>
+</body>
+</html>

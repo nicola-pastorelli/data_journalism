@@ -1,0 +1,504 @@
+body, h1, h2, h3, h4, h5{
+    font-family: "Raleway", sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+button {
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 1.5%;
+}
+
+.buttonActive{
+    background-color: #75AB9E!important;
+    color: white!important;
+}
+p {
+    font-size: large;
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 36px;
+    letter-spacing: 0.35px;
+ }
+body.w3-light-grey w3-content{
+    max-width: 1600px;
+}
+
+div.w3-main{
+    margin-left: 300px;
+}
+
+#titoli
+.main-titles {
+    font-weight: 700;
+    font-size: 2rem;
+    line-height: 2.25rem;
+    margin: 0 auto;
+    padding-bottom: 1rem;
+}
+
+.TableOfContentsContainer {
+    padding-top: 10px;
+    position: sticky;
+
+}
+.ElementWrapper-choicer {
+    cursor: pointer;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    margin-top: 12px;
+    position: relative;
+    width: auto;
+    text-decoration: none;
+}
+.pallino {
+    background-color:#75AB9E; 
+    border: 2px solid #fff;
+    border-radius: 18px;
+    display: inline-block;
+    height: 10px;
+    line-height: 1.5rem;
+    margin: auto 12px auto 0;
+    max-width: 10px;
+    min-height: 10px;
+    min-width: 10px;
+    position: relative;
+    width: 10%;
+}
+.pallino::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    background: #000000;
+    border-radius: 18px;
+    z-index: -1;
+}
+.scritta {
+    display: inline-block;
+    line-height: 1.5rem;
+    /*max-width: 165px;*/
+    vertical-align: middle;
+    font-family: 'Belanosima', sans-serif;
+}
+.css-nx0d73-TocLine {
+    background: rgb(0, 0, 0);
+    bottom: 8px;
+    height: calc((95% - 91px) - -10px);
+    margin-bottom: 36px;
+    margin-left: 6px;
+    position: absolute;
+    width: 1px;
+    z-index: 39;
+}
+.css-nx0d73-TocLine {
+    background: rgb(0, 0, 0);
+    bottom: 8px;
+    height: calc((95% - 91px) - -10px);
+    margin-bottom: 36px;
+    margin-left: 6px;
+    position: absolute;
+    width: 1px;
+    z-index: 39;
+}
+.scritta-menu {
+    display: inline-block;
+    line-height: 1.5rem;
+    max-width: 165px;
+    vertical-align: middle;
+    width: 90%;
+}
+.menu-line {
+    background: rgb(0, 0, 0);
+    bottom: 0px;
+    width: calc((100% - 60px) - 25px);
+    margin-bottom: 36px;
+    margin-left: 7px;
+    position: absolute;
+    width: 1px;
+    z-index: -2;
+}
+
+.visualization {
+    display: none; /* Hide all visualizations by default */
+  }
+
+  .visualization.active {
+    display: block; /* Show the active visualization */
+  }
+
+@media (max-width: 600px) {
+  #sidebar-container {
+    display: none;
+  }
+}
+.main-titles {
+    font-size: 3rem;
+    line-height: 3.375rem;
+    border-bottom: 0.4rem solid #75AB9E;
+    margin: 0 auto;
+    padding-bottom: 1rem;
+}
+.w3-third img{
+    margin-bottom: 6px;
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.w3-third img:hover{
+    opacity: 1;
+}
+
+#mySidebar{
+    z-index: 3;
+    width: 300px;
+    font-weight: bold;
+}
+
+#myOverlay{
+    cursor:pointer;
+}
+
+div.w3-hide-large{
+    margin-top: 83px;
+}
+
+div.w3-row-padding{
+    margin: 0 -16px;
+}
+
+
+div.w3-container w3-padding-small w3-center w3-grey{
+    width: 95%;
+}
+
+div.w3-container w3-padding-small w3-center w3-grey{
+    width: 85%;
+}
+
+div.w3-container w3-padding-small w3-center w3-grey{
+    width: 80%;
+}
+
+div.w3-row-padding{
+    margin: 0 -16px;
+}
+
+div.w3-content w3-justify{
+    max-width: 600px;
+}
+
+.image-container{
+    /*float: left;*/
+    margin-right: 3%;
+    width: 65%;
+}
+
+.image-container-right{
+    float: right;
+    margin-left: 2%;
+    width: 50%;
+}
+
+figure {
+    text-align: center;
+}
+
+figcaption {
+    font-size: 14px;
+    margin-top: 1%;
+}
+
+div.w3-row-padding{
+    margin: 0 -16px;
+}
+
+div.w3-third img{
+    width: 100%;
+}
+
+#authors, #teachers, #project {
+    list-style-type: none;
+    padding-left: 0%;
+}
+
+#introduzione {
+    background-color: #F1F1F1!important;
+}
+
+#conclusioni {
+    background-color: #616161!important;
+    color: #F1F1F1!important;
+}
+
+#title-sidebar{
+    padding-left: 12px;
+}
+
+.force-center{
+    margin: 0 auto;
+    display: block;
+}
+
+.graphics-btn-container{
+    margin-bottom: 10px;
+}
+
+#graphics-container-words2 {
+    display: none;
+    padding-top: 10px;
+}
+
+
+
+
+.vis.vega-embed {
+    width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1%;
+}
+
+.vega-embed summary {
+    display: none;
+}
+
+.vis.vega-embed details,
+.vis.vega-embed details summary {
+    position: relative;
+    display: none;
+}
+
+@media (max-width: 600px) {
+    vis {
+        width: 50%;
+        overflow: hidden;
+    }
+}
+
+ul,ol {
+    font-size: 18px;
+}
+
+.visualization {
+    display: none; /* Hide all visualizations by default */
+}
+
+.green {
+    color: #75AB9E;
+}
+
+section {
+      margin-bottom: 2em;
+      padding: 1em;
+      background-color: #ffffff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+h3 {
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 0.3em;
+}
+
+/* =========================================================
+   RESPONSIVE DESIGN - MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    /* Evita lo scroll orizzontale */
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    /* Il contenuto non deve lasciare spazio alla sidebar desktop */
+    div.w3-main {
+        margin-left: 0 !important;
+        width: 100%;
+    }
+
+    /* Titolo principale */
+    .main-titles {
+        font-size: 2rem;
+        line-height: 2.3rem;
+        padding-bottom: 0.8rem;
+        margin-bottom: 1rem;
+    }
+
+    /* Titolo della barra superiore mobile */
+    header.w3-top {
+        min-height: 60px;
+    }
+
+    header.w3-top .w3-left {
+        font-size: 1.05rem;
+        line-height: 1.3rem;
+        max-width: calc(100% - 55px);
+        white-space: normal;
+    }
+
+    header.w3-top .w3-right {
+        padding: 8px 10px;
+        font-size: 1.5rem;
+    }
+
+    /* Spaziatura generale delle sezioni */
+    .w3-container {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+    }
+
+    /* Testo */
+    p {
+        font-size: 16px;
+        line-height: 1.65;
+        margin-bottom: 28px;
+        letter-spacing: 0.2px;
+    }
+
+    ul,
+    ol {
+        font-size: 16px;
+        line-height: 1.6;
+        padding-left: 25px;
+    }
+
+    /* Titoli delle sezioni */
+    h2 {
+        font-size: 1.5rem;
+        line-height: 1.9rem;
+    }
+
+    h3 {
+        font-size: 1.25rem;
+        line-height: 1.6rem;
+    }
+
+    /* Indice interno */
+    .ElementWrapper-choicer {
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    .scritta {
+        font-size: 15px;
+        line-height: 1.35rem;
+    }
+
+    /* Grafici e immagini */
+    .chartContainer,
+    .image-container,
+    .image-container-right {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 auto 15px auto !important;
+        float: none !important;
+    }
+
+    .chartContainer img,
+    .image-container img,
+    .image-container-right img {
+        width: 100% !important;
+        height: auto !important;
+        max-width: 100%;
+    }
+
+    /* Didascalie */
+    figcaption {
+        font-size: 12px;
+        line-height: 1.4;
+        padding: 0 5px;
+    }
+
+    /* Controlli della mappa */
+    .controls {
+        margin: 15px 0;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .controls label {
+        margin-top: 4px;
+    }
+
+    .controls select {
+        width: 100%;
+        min-height: 42px;
+        font-size: 16px;
+        padding: 6px;
+    }
+
+    /* Mappa interattiva */
+    #map {
+        width: 100%;
+        height: 60vh !important;
+        max-width: 100%;
+    }
+
+    /* Mappa dentro iframe */
+    iframe {
+        width: 100% !important;
+        max-width: 100%;
+        height: 500px !important;
+    }
+
+    /* Box delle sezioni */
+    section {
+        margin-bottom: 1.5em;
+        padding: 0.8em;
+    }
+
+    /* Footer */
+    footer .w3-third {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    /* Modal immagini */
+    .w3-modal-content {
+        width: 95% !important;
+        max-width: 95%;
+    }
+
+    /* Titolo nella barra superiore */
+    header.w3-top .w3-left {
+    font-family: "Raleway", sans-serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    line-height: 1.2;
+    letter-spacing: 0.2px;
+    }
+
+    /* Evita che la barra superiore copra
+       i titoli quando si raggiunge una sezione */
+    #introduzione,
+    #impatto_demografico_economico,
+    #modello_predittivo {
+        scroll-margin-top: 50px;
+    }
+
+    #conclusioni {
+        scroll-margin-top: 60px;
+    }
+
+    #sez1,
+    #sez2,
+    #sez3 {
+        scroll-margin-top: 90px;
+    }
+
+}
