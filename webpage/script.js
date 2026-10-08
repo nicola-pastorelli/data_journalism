@@ -42,7 +42,17 @@ function handleMouseOut() {
     tooltip.style.display = 'none';
 }
 
-
-
-
-
+fetch("https://uawimfhjaesndymvyxzx.supabase.co/rest/v1/visits", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    "apikey": "sb_publishable_uye0lqct8dY92ai8wm2f8A_FgnrB3If",
+    "Authorization": "Bearer sb_publishable_uye0lqct8dY92ai8wm2f8A_FgnrB3If",
+    "Prefer": "return=minimal"
+  },
+  body: JSON.stringify({
+    site: "Italia sismica"
+  })
+}).catch(error => {
+  console.error("Errore nel tracciamento della visita:", error);
+});
