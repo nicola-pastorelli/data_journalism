@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_c57f02cf1ac21f7a21fe2c61aed0ab26 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_c57f02cf1ac21f7a21fe2c61aed0ab26" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_c57f02cf1ac21f7a21fe2c61aed0ab26 = L.map(
+                "map_c57f02cf1ac21f7a21fe2c61aed0ab26",
+                {
+                    center: [42.5, 12.57],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 6,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_aa3d4d92b10f16c7ff6073ae7626fcd0 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_aa3d4d92b10f16c7ff6073ae7626fcd0.addTo(map_c57f02cf1ac21f7a21fe2c61aed0ab26);
+        
+    
+            var marker_129fa203db3df497b8c2c5ca6e2e10d4 = L.marker(
+                [37.68, 12.82],
+                {
+}
+            ).addTo(map_c57f02cf1ac21f7a21fe2c61aed0ab26);
+        
+    
+            var icon_f5fb931b7c0c4f77379122a9e7be9255 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6320b21cbd0b96863d12e022c693ee51 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5fc15c81ee8c5a96d36b7e2bbfc8ab3c = $(`<div id="html_5fc15c81ee8c5a96d36b7e2bbfc8ab3c" style="width: 100.0%; height: 100.0%;">Valle del Belice (1968)</div>`)[0];
+                popup_6320b21cbd0b96863d12e022c693ee51.setContent(html_5fc15c81ee8c5a96d36b7e2bbfc8ab3c);
+            
+        
+
+        marker_129fa203db3df497b8c2c5ca6e2e10d4.bindPopup(popup_6320b21cbd0b96863d12e022c693ee51)
+        ;
+
+        
+    
+    
+                marker_129fa203db3df497b8c2c5ca6e2e10d4.setIcon(icon_f5fb931b7c0c4f77379122a9e7be9255);
+            
+    
+            var marker_a3ebaed2ae962694e771cccec92d1230 = L.marker(
+                [46.27, 13.13],
+                {
+}
+            ).addTo(map_c57f02cf1ac21f7a21fe2c61aed0ab26);
+        
+    
+            var icon_3bc54ab878d2245328aca524753946e2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b9f7f674628fd25bfa125915a31efdd9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_19f4912d7e3c20aa2e1e4761014d2a7d = $(`<div id="html_19f4912d7e3c20aa2e1e4761014d2a7d" style="width: 100.0%; height: 100.0%;">Friuli Venezia Giulia (1976)</div>`)[0];
+                popup_b9f7f674628fd25bfa125915a31efdd9.setContent(html_19f4912d7e3c20aa2e1e4761014d2a7d);
+            
+        
+
+        marker_a3ebaed2ae962694e771cccec92d1230.bindPopup(popup_b9f7f674628fd25bfa125915a31efdd9)
+        ;
+
+        
+    
+    
+                marker_a3ebaed2ae962694e771cccec92d1230.setIcon(icon_3bc54ab878d2245328aca524753946e2);
+            
+    
+            var marker_abb6b286de82c899a5487008c3854ca3 = L.marker(
+                [40.85, 15.3],
+                {
+}
+            ).addTo(map_c57f02cf1ac21f7a21fe2c61aed0ab26);
+        
+    
+            var icon_9625a93bd9dd3992fdd3905d33d625fe = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0b0c2cb711e44c0f73445ccae16dbd72 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_bfdcd68a224a84914f9ead3ede74b7a2 = $(`<div id="html_bfdcd68a224a84914f9ead3ede74b7a2" style="width: 100.0%; height: 100.0%;">Irpinia (1980)</div>`)[0];
+                popup_0b0c2cb711e44c0f73445ccae16dbd72.setContent(html_bfdcd68a224a84914f9ead3ede74b7a2);
+            
+        
+
+        marker_abb6b286de82c899a5487008c3854ca3.bindPopup(popup_0b0c2cb711e44c0f73445ccae16dbd72)
+        ;
+
+        
+    
+    
+                marker_abb6b286de82c899a5487008c3854ca3.setIcon(icon_9625a93bd9dd3992fdd3905d33d625fe);
+            
+    
+            var marker_5f1599b0cf2806dacca8369a33e3cea9 = L.marker(
+                [43.0, 12.88],
+                {
+}
+            ).addTo(map_c57f02cf1ac21f7a21fe2c61aed0ab26);
+        
+    
+            var icon_a4f97df666a3b23c63b9f575753cb571 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3371aa5bb4f02c82627e769fcf2a1796 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_fc7e4f06be6f27165a783071ab89d3f3 = $(`<div id="html_fc7e4f06be6f27165a783071ab89d3f3" style="width: 100.0%; height: 100.0%;">Marche-Umbria (1997)</div>`)[0];
+                popup_3371aa5bb4f02c82627e769fcf2a1796.setContent(html_fc7e4f06be6f27165a783071ab89d3f3);
+            
+        
+
+        marker_5f1599b0cf2806dacca8369a33e3cea9.bindPopup(popup_3371aa5bb4f02c82627e769fcf2a1796)
+        ;
+
+        
+    
+    
+                marker_5f1599b0cf2806dacca8369a33e3cea9.setIcon(icon_a4f97df666a3b23c63b9f575753cb571);
+            
+    
+            var marker_ea39716920e2ac6074940c8df8716dd4 = L.marker(
+                [41.72, 14.96],
+                {
+}
+            ).addTo(map_c57f02cf1ac21f7a21fe2c61aed0ab26);
+        
+    
+            var icon_fac7eaeb72b41aa704e15cdc21662ce3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4fc4d1f0e55466000bf7d0d0dd47edb3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_986c9bee12bd651237610a5a219344de = $(`<div id="html_986c9bee12bd651237610a5a219344de" style="width: 100.0%; height: 100.0%;">Molise-Puglia (2002)</div>`)[0];
+                popup_4fc4d1f0e55466000bf7d0d0dd47edb3.setContent(html_986c9bee12bd651237610a5a219344de);
+            
+        
+
+        marker_ea39716920e2ac6074940c8df8716dd4.bindPopup(popup_4fc4d1f0e55466000bf7d0d0dd47edb3)
+        ;
+
+        
+    
+    
+                marker_ea39716920e2ac6074940c8df8716dd4.setIcon(icon_fac7eaeb72b41aa704e15cdc21662ce3);
+            
+    
+            var marker_6df9a87f2e646a5fa64dbe8a5d16a9be = L.marker(
+                [42.35, 13.38],
+                {
+}
+            ).addTo(map_c57f02cf1ac21f7a21fe2c61aed0ab26);
+        
+    
+            var icon_5ab6b4bee4c267d0e892d55908149cef = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_00a8e3e996848343fef1eb901de773f9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f499dbdeffda84309bd6e79f30e43f45 = $(`<div id="html_f499dbdeffda84309bd6e79f30e43f45" style="width: 100.0%; height: 100.0%;">Abruzzo (2009)</div>`)[0];
+                popup_00a8e3e996848343fef1eb901de773f9.setContent(html_f499dbdeffda84309bd6e79f30e43f45);
+            
+        
+
+        marker_6df9a87f2e646a5fa64dbe8a5d16a9be.bindPopup(popup_00a8e3e996848343fef1eb901de773f9)
+        ;
+
+        
+    
+    
+                marker_6df9a87f2e646a5fa64dbe8a5d16a9be.setIcon(icon_5ab6b4bee4c267d0e892d55908149cef);
+            
+    
+            var marker_7daebe3f158f9c3c22dd99f7bb787ce8 = L.marker(
+                [44.89, 11.23],
+                {
+}
+            ).addTo(map_c57f02cf1ac21f7a21fe2c61aed0ab26);
+        
+    
+            var icon_77cb8668f55926e6be9eca51cffa6251 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_53f0031df1dd9ac05545cec92cd33c2d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3a81f776b63fd8c947933234f35ddf80 = $(`<div id="html_3a81f776b63fd8c947933234f35ddf80" style="width: 100.0%; height: 100.0%;">Emilia Romagna (2012)</div>`)[0];
+                popup_53f0031df1dd9ac05545cec92cd33c2d.setContent(html_3a81f776b63fd8c947933234f35ddf80);
+            
+        
+
+        marker_7daebe3f158f9c3c22dd99f7bb787ce8.bindPopup(popup_53f0031df1dd9ac05545cec92cd33c2d)
+        ;
+
+        
+    
+    
+                marker_7daebe3f158f9c3c22dd99f7bb787ce8.setIcon(icon_77cb8668f55926e6be9eca51cffa6251);
+            
+    
+            var marker_00dea5c784d8224c3b5ba5af9bc0372a = L.marker(
+                [42.7, 13.23],
+                {
+}
+            ).addTo(map_c57f02cf1ac21f7a21fe2c61aed0ab26);
+        
+    
+            var icon_bb6b9b7703957a2678cd99018db40591 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_634b224a5ea0670f08989bd40fc28c57 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d4d1a0e3e376219752afa749e955b385 = $(`<div id="html_d4d1a0e3e376219752afa749e955b385" style="width: 100.0%; height: 100.0%;">Centro Italia (2016)</div>`)[0];
+                popup_634b224a5ea0670f08989bd40fc28c57.setContent(html_d4d1a0e3e376219752afa749e955b385);
+            
+        
+
+        marker_00dea5c784d8224c3b5ba5af9bc0372a.bindPopup(popup_634b224a5ea0670f08989bd40fc28c57)
+        ;
+
+        
+    
+    
+                marker_00dea5c784d8224c3b5ba5af9bc0372a.setIcon(icon_bb6b9b7703957a2678cd99018db40591);
+            
+</script>
+</html>
