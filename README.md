@@ -117,7 +117,7 @@ Immagini utilizzate nella pagina: grafici, immagine della Rete Sismica Nazionale
 
 ### `.gitignore`
 
-- Esclude dal repository i file CSV presenti nella cartella `data/`.
+Esclude dal repository i file CSV presenti nella cartella `data/`.
 
 ---
 
